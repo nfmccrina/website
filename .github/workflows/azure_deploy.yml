@@ -11,6 +11,7 @@ jobs:
     - name: print cwd
       run: pwd
     - name: list files
+      uses: actions/checkout@v2
       run: ls
 #    - name: Login to Azure
 #      env:
