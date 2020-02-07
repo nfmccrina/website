@@ -10,21 +10,17 @@ jobs:
     steps:
     - name: get files
       uses: actions/checkout@v2
-    - name: print cwd
-      run: pwd
-    - name: list files
-      run: ls
-#    - name: Login to Azure
-#      env:
-#        service_username: ${{ secrets.DEPLOY_SERVICE_USERNAME }}
-#        service_secret: ${{ secrets.DEPLOY_SERVICE_SECRET }}
-#      run: az login -u $service_username -p $service_secret
-#    - name: Set subscription id
-#      env:
-#        subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
-#      run: az account set --subscription $subscription
-#    - name: Upload site
-#      env:
-#        connection_string: ${{ secrets.STORAGE_ACCOUNT_NAME }}
-#      run: az storage blob upload-batch -s ./wwwroot -d \$web --connection-string $connection_string
+    - name: Login to Azure
+      env:
+        service_username: ${{ secrets.DEPLOY_SERVICE_USERNAME }}
+        service_secret: ${{ secrets.DEPLOY_SERVICE_SECRET }}
+      run: az login -u $service_username -p $service_secret
+    - name: Set subscription id
+      env:
+        subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
+      run: az account set --subscription $subscription
+    - name: Upload site
+      env:
+        connection_string: ${{ secrets.STORAGE_ACCOUNT_NAME }}
+      run: az storage blob upload-batch -s ./wwwroot -d \$web --connection-string $connection_string
 
