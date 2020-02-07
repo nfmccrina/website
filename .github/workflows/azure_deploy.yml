@@ -3,10 +3,23 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  deploy:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Login to Azure
+      env:
+        service_username: ${{ secrets.DEPLY_SERVICE_USERNAME }}
+        service_secret: ${{ secrets.DEPLY_SERVICE_SECRET }}
+      run: az login -u $service_username -p $service_secret
+    - name: Set subscription id
+      env:
+        subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
+      run: az account set --subscription $subscription
+    - name: Upload site
+      env:
+        account_name: ${{ secrets.STORAGE_ACCOUNT_NAME }}
+        account_key: ${{ secrets.STORAGE_ACCOUNT_NAME }}
+      run: az storage blob upload-batch -s ./wwwroot -d \$web --account-name $account_name --account-key $account_key
+
