@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -21,6 +24,6 @@ jobs:
       run: az account set --subscription $subscription
     - name: Upload site
       env:
-        connection_string: ${{ secrets.STORAGE_ACCOUNT_NAME }}
+        connection_string: ${{ secrets.STORAGE_CONNECTION_STRING }}
       run: az storage blob upload-batch -s ./wwwroot -d \$web --connection-string $connection_string
 
