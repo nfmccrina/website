@@ -8,18 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Login to Azure
-      env:
-        service_username: ${{ secrets.DEPLOY_SERVICE_USERNAME }}
-        service_secret: ${{ secrets.DEPLOY_SERVICE_SECRET }}
-      run: az login -u $service_username -p $service_secret
-    - name: Set subscription id
-      env:
-        subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
-      run: az account set --subscription $subscription
-    - name: Upload site
-      env:
-        account_name: ${{ secrets.STORAGE_ACCOUNT_NAME }}
-        account_key: ${{ secrets.STORAGE_ACCOUNT_NAME }}
-      run: az storage blob upload-batch -s ./wwwroot -d \$web --account-name $account_name --account-key $account_key
+    - name: print cwd
+      run: pwd
+    - name: list files
+      run: ls
+#    - name: Login to Azure
+#      env:
+#        service_username: ${{ secrets.DEPLOY_SERVICE_USERNAME }}
+#        service_secret: ${{ secrets.DEPLOY_SERVICE_SECRET }}
+#      run: az login -u $service_username -p $service_secret
+#    - name: Set subscription id
+#      env:
+#        subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
+#      run: az account set --subscription $subscription
+#    - name: Upload site
+#      env:
+#        connection_string: ${{ secrets.STORAGE_ACCOUNT_NAME }}
+#      run: az storage blob upload-batch -s ./wwwroot -d \$web --connection-string $connection_string
 
