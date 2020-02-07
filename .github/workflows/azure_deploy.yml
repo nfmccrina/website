@@ -10,8 +10,8 @@ jobs:
     steps:
     - name: Login to Azure
       env:
-        service_username: ${{ secrets.DEPLY_SERVICE_USERNAME }}
-        service_secret: ${{ secrets.DEPLY_SERVICE_SECRET }}
+        service_username: ${{ secrets.DEPLOY_SERVICE_USERNAME }}
+        service_secret: ${{ secrets.DEPLOY_SERVICE_SECRET }}
       run: az login -u $service_username -p $service_secret
     - name: Set subscription id
       env:
