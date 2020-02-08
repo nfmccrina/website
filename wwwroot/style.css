@@ -45,6 +45,12 @@ body
     padding: 8px 32px 8px 32px;
 }
 
+.paragraph
+{
+    width: 60em;
+    text-align: justify;
+}
+
 .site-links
 {
     padding-top: 20px;
