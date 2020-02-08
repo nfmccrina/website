@@ -1,0 +1,58 @@
+body
+{
+    margin: 0;
+}
+
+.page
+{
+    position: absolute;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 60px 1fr 60px;
+}
+
+.top-bar
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: rgb(144, 174, 192);
+    text-align: center;
+}
+
+.left-bar
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color: #D0D0D0;
+}
+
+.bottom-bar
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: rgb(144, 174, 192);
+    text-align: center;
+}
+
+.content
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: white;
+    border: 2px inset black;
+    padding: 8px 32px 8px 32px;
+}
+
+.site-links
+{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-link
+{
+    text-align: center;
+}
