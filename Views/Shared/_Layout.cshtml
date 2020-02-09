@@ -1,0 +1,44 @@
+@model LayoutModel
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>@Model.Title</title>
+        <link type="text/css" rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <div class="page">
+            <div class="top-bar">
+                <div class="site-description">
+                    <h3>Nathan McCrina's Personal Website - software developer; appreciator of beer, books, music and cats</h3>
+                </div>
+            </div>
+            <div class="left-bar">
+                <div class="site-links">
+                    <div class="site-link">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </div>
+                    <div class="site-link">
+                        <a asp-controller="Books" asp-action="Index">Reading List</a>
+                    </div>
+                    <div class="site-link">
+                        <a asp-controller="Beer" asp-action="Index">Beer List</a>
+                    </div>
+                    <div class="site-link">
+                        <a asp-controller="Software" asp-action="Index">Software</a>
+                    </div>
+                </div>
+                <div class="strava-widget">
+                    <iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/42736873/activity-summary/bd4ac23617916eda06f467ca9eac78fb1f5473b1'></iframe>
+                </div>
+            </div>
+            <div class="content">
+                @RenderBody()
+            </div>
+            <div class="bottom-bar">
+                <p>Email me: nathan <em>dot</em> mccrina <em>at</em> outlook <em>dot</em> com</p>
+            </div>
+        </div>
+    </body>
+</html>
