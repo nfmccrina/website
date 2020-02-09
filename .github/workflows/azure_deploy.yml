@@ -19,11 +19,11 @@ jobs:
         dotnet-version: '3.1.101'
     - name: Build Project
       shell: bash
-      run:
-        dotnet build --configuration Release --output ./output
+      run: |
+        dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp 
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
       with: 
         app-name: mccrina
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-        package: ./output
+        package: ${{env.DOTNET_ROOT}}/myapp 
