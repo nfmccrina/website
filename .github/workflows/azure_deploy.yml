@@ -13,17 +13,16 @@ jobs:
     steps:
     - name: get files
       uses: actions/checkout@v2
-    - name: Login to Azure
-      env:
-        service_username: ${{ secrets.DEPLOY_SERVICE_USERNAME }}
-        service_secret: ${{ secrets.DEPLOY_SERVICE_SECRET }}
-      run: az login -u $service_username -p $service_secret
-    - name: Set subscription id
-      env:
-        subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
-      run: az account set --subscription $subscription
-    - name: Upload site
-      env:
-        connection_string: ${{ secrets.STORAGE_CONNECTION_STRING }}
-      run: az storage blob upload-batch -s ./wwwroot -d \$web --connection-string $connection_string
-
+    - name: Setup Dotnet 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.101'
+    - name: Build Project
+      shell: bash
+      run:
+        dotnet build --configuration Release --output ./output
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: mccrina
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }}
