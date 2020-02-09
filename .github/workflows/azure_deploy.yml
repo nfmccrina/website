@@ -26,3 +26,4 @@ jobs:
       with: 
         app-name: mccrina
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+        package: ./output
