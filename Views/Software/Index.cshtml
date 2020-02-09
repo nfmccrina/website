@@ -1,0 +1,30 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>Software</h1>
+<p class="paragraph">Here are some programs I've written that are available on Github.</p>
+<h2>Website</h2>
+<p class="paragraph">The code for the site you are reading is <a href="https://github.com/nfmccrina/website">here</a>.
+Obviously it's &apos;90s&dash;style html &plus; css but it has an express server and vscode launch configuration
+for local debugging and continuous deployment set up from Github to Azure Storage.</p>
+<h2>oidc-client-js samples</h2>
+<p class="paragraph">At work we redesigned our security model to use OpenId Connect for authentication with Identity Server 4 as
+the OpenId provider. I was in charge of setting up our Angular apps to authenticate with the server and for that
+I used a great library called <a href="https://github.com/IdentityModel/oidc-client-js">oidc-client</a> It is maintained by the same organization as Identity Server 4 and it
+was very interesting figuring out how to set it up correctly (we are using the Authorization Code &plus; PKCE OAuth flow).
+I wanted to dive deeper into OAuth and OpenId Connect so I started writing some sample frontend apps using oidc-client. So
+far I have implemented one scenario, implicit flow with Azure AD B2C. The sample apps are <a href="https://github.com/nfmccrina/oidc-client-js-samples">here</a>.
+</p>
+<h2>Tuxedo Cat</h2>
+<p class="paragraph">
+    Tuxedo Cat is a chess engine I wrote a few years ago. I was drawn to writing a chess engine because 1&rpar; I like
+    chess and 2&rpar; the way chess engines work is that the UI (the board, clock etc) is decoupled from the actual
+    engine which contains the logic, and they communicate via a standardized text protocol. That meant that I could
+    focus on what I was interested in, which was the logical problem of finding the best moves, and simply connect to
+    an existing GUI instead of having to worry about writing my own, which I wasn't as interested in. My engine got to
+    the point where it was able to play a complete game at a level slightly above complete incompetence, which I was
+    pretty proud of. It's been a while since I've built the code and there are lots of branches containing aborted
+    improvement/refactoring attempts, but the most recent version on the master branch should still work in theory.
+    The code is <a href="https://github.com/nfmccrina/tuxedocat">here</a>.
+</p>
