@@ -1,0 +1,27 @@
+@model Website.Models.UserRegistrationFormModel
+
+<h1>Register</h1>
+<form id="registrationForm" asp-controller="Account" asp-action="Register" method="post">
+    <div>
+        <label>Username</label>
+        <input type="text" id="usernameInput" asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" id="passwordInput" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPasswordInput" asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+<form id="switchToLoginForm" asp-controller="Account" asp-action="SwitchToLogin" method="post">
+    <label>Already have an account?</label>
+    <button>Login</button>
+</form>

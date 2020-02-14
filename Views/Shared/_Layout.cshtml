@@ -1,10 +1,9 @@
-@model LayoutModel
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
 
-        <title>@Model.Title</title>
+        <title>@ViewData["Title"]</title>
         <link type="text/css" rel="stylesheet" href="/style.css" />
     </head>
     <body>
@@ -13,6 +12,12 @@
                 <div class="site-description">
                     <h3>Nathan McCrina's Personal Website - software developer; appreciator of beer, books, music and cats</h3>
                 </div>
+                @if (bool.Parse(ViewData["IsAuthenticated"].ToString()))
+                {
+                <div class="sign-out-button">
+                    <a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut"><button>Sign out</button></a>
+                </div>
+                }
             </div>
             <div class="left-bar">
                 <div class="site-links">

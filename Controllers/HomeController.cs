@@ -8,7 +8,9 @@ namespace Website.Controllers
         [HttpGet()]
         public IActionResult Index()
         {
-            return View(new LayoutModel("Nathan McCrina | Home"));
+            ViewData["IsAuthenticated"] = User.Identity.IsAuthenticated;
+            ViewData["Title"] = "Nathan McCrina | Home";
+            return View();
         }
     }
 }
