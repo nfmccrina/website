@@ -42,7 +42,8 @@ namespace Website
             services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
             {
                 options.Authority = options.Authority + "/v2.0";
-
+                options.ResponseType = "code";
+                options.UsePkce = true;
             });
 
             services.AddControllersWithViews();
